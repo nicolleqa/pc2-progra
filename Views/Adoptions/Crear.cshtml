@@ -1,0 +1,45 @@
+@model pc2_progra.Models.Adoptions
+
+@{
+    ViewData["Title"] = "Registrar Adopción";
+}
+
+<div class="container">
+    <h2>Registrar Nueva Adopción</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label class="control-label">Mascota</label>
+                    <select asp-for="PetId" class="form-select" required>
+                        <option value="">Seleccione una mascota</option>
+                        @foreach (var pet in ViewBag.Pets)
+                        {
+                            <option value="@pet.Id">@pet.Nombre (@pet.Tipo)</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="control-label">Adoptante</label>
+                    <select asp-for="AdopterId" class="form-select" required>
+                        <option value="">Seleccione un adoptante</option>
+                        @foreach (var adopter in ViewBag.Adopters)
+                        {
+                            <option value="@adopter.Id">@adopter.Nombre</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Registrar Adopción
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

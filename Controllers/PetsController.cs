@@ -32,5 +32,15 @@ namespace pc2_progra.Controllers
             }
             return View("Index", pets);
         }
+
+        public async Task<IActionResult> Listar()
+        {
+            var pets = await _context.Pets
+                .Include(p => p.Adoption)
+                    .ThenInclude(a => a.Adopter)
+                .OrderByDescending(p => p.CreatedAt)
+                .ToListAsync();
+            return View(pets);
+        }
     }
 }
