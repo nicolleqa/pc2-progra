@@ -30,12 +30,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Pets" asp-action="Index">Crear Mascota</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Pets" asp-action="Listar">Listar Mascotas</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Adopters" asp-action="Index">Crear Adoptante</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Adopters" asp-action="Index">Listar Adoptantes</a>
+                            <a class="nav-link text-dark" asp-controller="Adopters" asp-action="Listar">Listar Adoptantes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Adoptions" asp-action="Crear">Crear Adopciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Adoptions" asp-action="Index">Listar Adopciones</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

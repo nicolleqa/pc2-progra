@@ -1,0 +1,40 @@
+@model IEnumerable<pc2_progra.Models.Adoptions>
+
+@{
+    ViewData["Title"] = "Lista de Adopciones";
+}
+
+<div class="container">
+    <h2>Lista de Adopciones</h2>
+    <p>
+        <a asp-action="Crear" class="btn btn-primary">
+          Realizar nueva Adopción
+        </a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Mascota</th>
+                    <th>Adoptante</th>
+                    <th>Fecha de Adopción</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Pet.Nombre</td>
+                        <td>@item.Adopter.Nombre</td>
+                        <td>@item.AdoptionDate.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <span class="badge bg-success">Adoptado</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
